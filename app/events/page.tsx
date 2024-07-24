@@ -40,7 +40,7 @@ export default function EventPage() {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [loading])
 
   return (
     <div className="mx-10">
@@ -48,6 +48,7 @@ export default function EventPage() {
       <div className="grid grid-cols-3 gap-6">
         {events.map((event: Event) => (
           <Link
+            key={event.eventId}
             href={`events/${event.eventName.replaceAll(' ', '-')}?q=${
               event.eventId
             }`}
